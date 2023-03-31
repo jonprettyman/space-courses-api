@@ -31,11 +31,15 @@ async function main() {
     ],
   });
   const { url } = await startStandaloneServer(server, {
-    context: async ({ req }) => ({
-      dataSources: {
-        trackAPI: new TracksAPI(),
-      },
-    }),
+    context: async () => {
+      const { cache } = server;
+
+      return {
+        dataSources: {
+          trackAPI: new TracksAPI({ cache }),
+        },
+      };
+    },
     listen: { port },
   });
 
