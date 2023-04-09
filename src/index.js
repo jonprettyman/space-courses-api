@@ -43,7 +43,7 @@ async function main() {
     listen: { port },
   });
 
-  console.log(`🚀  GraphQL API ready at ${url}`);
+  console.log(`🚀  GraphQL API ready at ${url}: ${process.env.APOLLO_GRAPH_REF`);
 }
 
 main();
