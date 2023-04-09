@@ -13,6 +13,8 @@ const TracksAPI = require('./datasources/tracks-api');
 const port = process.env.PORT || 4001;
 const subgraphName = require('../package.json').name;
 
+const apolloGraphRef = process.env.APOLLO_GRAPH_REF || "NO GRAPH REF";
+
 async function main() {
   const typeDefs = gql(
     readFileSync('schema.graphql', {
@@ -43,7 +45,7 @@ async function main() {
     listen: { port },
   });
 
-  console.log(`🚀  GraphQL API ready at ${url}: ${process.env.APOLLO_GRAPH_REF`);
+  console.log(`🚀  GraphQL API ready at ${url}: ${apolloGraphRef}`);
 }
 
 main();
